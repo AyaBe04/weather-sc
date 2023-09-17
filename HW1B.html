@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        body{
+            background-color: rgb(248, 251, 253);
+        }
+        div{
+            text-align: center;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        h1{
+            color:#2a74d3
+        }
+        h2{
+            font-size: 34px;
+            line-height: 48px;
+            font-weight: 400;
+        }
+        ul{
+            list-style-type: disc;
+            text-align: center;
+            padding: 0;
+            display: block;
+        }
+        button{
+            padding: 10px 5px;
+            margin: 10px 5px;
+            display: block;  
+            margin: 0 auto;
+            color:#f4f3f7;
+            border-radius: 20px;
+            border-width: 0.2ch;
+            border-color:#2265bc;
+            box-shadow:4px 4px 4px rgb(165, 162, 162);
+            transition: all 200ms ease-in-out;
+            background:#2265bc;
+        }
+        button:hover{
+            background:#f4f3f7;
+            color:#2265bc;
+            cursor: pointer;
+        }
+        li{
+            transition: background-color 0.5s;
+            padding: 10px 10px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        li:hover{
+            background-color: beige;
+            cursor: pointer;
+
+
+        }
+        p{
+            color:gray
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <h1>🌤 <br> Currently 21° in Tokyo</h1>
+    <h2> 13° / <strong> 23°</strong></h2>
+    <ul>
+        <li class="hover">
+            <h3>
+                🌧Tomorrow
+            </h3>
+            <p>10° / <strong>22°</strong></p>
+        </li>
+        <li class="hover">
+            <h3>
+                🌥 Saturday
+            </h3>
+            <p>15° / <strong>17°</strong></p>
+        </li>
+        <li class="hover">
+            <h3>
+                ☀️ Sunday
+            </h3>
+            <p>25° / <strong>28°</strong></p>
+        </li>
+    </ul>
+    <button class="hover"> Change city </button>
+    <p> Coded By Aya Bekkali </p>
+</div>    
+</body>
+<script>
+    function ChangeCity(){
+        let city=prompt("What city do you live in ?");
+        let temperature=prompt("What temperature is it ?");
+        let h1 = document.querySelector("h1");
+        
+        if( temperature <= 0 ){
+            h1.innerHTML= " 🥶 "+ "<br>" +"it's currently "+temperature+"° in "+city
+        }else if( temperature>0 && temperature<=25){
+            h1.innerHTML= "😊"+ "<br>" +"it's currently "+temperature+"° in "+city
+        }else if( temperature>25){
+            h1.innerHTML= "🥵"+ "<br>" +"it's currently "+temperature+"° in "+city
+        }
+    }
+    let CityInfos = document.querySelector("button");
+    CityInfos.addEventListener('click',ChangeCity);
+</script>
+</html>
